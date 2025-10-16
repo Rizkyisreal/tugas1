@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angkatan VII MAMINSUM - Countdown Kelulusan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Audio Background -->
+    <audio id="bgMusic" loop>
+        <source src="assets/audio/background-music.mp3" type="audio/mpeg">
+        Browser Anda tidak mendukung audio element.
+    </audio>
+
+    <!-- === HALAMAN LOGIN === -->
+    <div class="login-page" id="loginPage">
+        <div class="login-container">
+            <div class="logo">
+                <img src="assets/images/logo-maminsum.png" alt="Logo MAMINSUM" id="logo">
+            </div>
+            
+            <div class="door-container">
+                <div class="door">
+                    <h1>Welcome to</h1>
+                    <h2>ANGKATAN VII MAMINSUM</h2>
+                    
+                    <div class="login-form">
+                        <input type="text" id="namaInput" placeholder="Ketik nama kamu..." autocomplete="off">
+                        <button id="loginBtn" class="btn-primary">
+                            <span>MASUK</span>
+                            <div class="btn-loader"></div>
+                        </button>
+                    </div>
+                    
+                    <p class="error-msg" id="errorMsg">Siapa nih? Coba ketik ulang atau hubungi admin</p>
+                </div>
+            </div>
+            
+            <div class="footer">
+                <p>#inMaminsumMglWeTrust</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- === HALAMAN UTAMA === -->
+    <div class="main-page" id="mainPage">
+        <!-- Audio Control -->
+        <div class="audio-control">
+            <button id="musicToggle">🔊</button>
+        </div>
+
+        <header>
+            <div class="logo-header">
+                <img src="assets/images/logo-maminsum.png" alt="Logo MAMINSUM">
+                <span>ANGKATAN VII MAMINSUM</span>
+            </div>
+            <div class="user-welcome">
+                <span id="welcomeMessage">Selamat datang, [Nama]! ✨</span>
+            </div>
+        </header>
+
+        <!-- Countdown Section -->
+        <section class="countdown-section">
+            <div class="countdown-container">
+                <div class="countdown-card">
+                    <h1>H-<span id="countdownDays">0</span> HARI</h1>
+                    <p class="countdown-subtitle">Menuju Kelulusan</p>
+                    <p class="target-date">Target: 25 Oktober 2026</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Teks Motivasi -->
+        <section class="motivation-section">
+            <div class="container">
+                <div class="motivation-main">
+                    <h2>KAMI ANGKATAN VII MAMINSUM</h2>
+                    <h3>Siap Mengukir Sejarah Baru Melalui Program Magang!</h3>
+                    
+                    <div class="motivation-text">
+                        <p>"Sebagai generasi penerus bangsa, Angkatan VII MAMINSUM siap membawa energi baru, inovasi, dan semangat kolaborasi ke dalam dunia profesional. Melalui program magang ini, kami tidak hanya mencari pengalaman, tetapi juga membangun jejaring, mengasah kompetensi, dan menyiapkan diri untuk terjun langsung dalam membantu dalam menjaga dan menyebarkan ajaran Rasul berdasarkan dalil dan atsar yang shohih."</p>
+                        
+                        <p>"Bersama kita buktikan: Kualitas pendidikan MAMINSUM mampu melahirkan lulusan yang kompeten, berkarakter, dan ber akhlak mulia.!"</p>
+                    </div>
+                </div>
+
+                <div class="motivation-short">
+                    <p>"MAGANG? KAMI SIAP! Angkatan VII MAMINSUM siap berkontribusi, belajar, dan tumbuh bersama dalam setiap kesempatan magang. Success is our tradition!"</p>
+                </div>
+
+                <div class="hashtag">
+                    <h3>#inMaminsumMglWeTrust</h3>
+                    <p>One Team, One Dream, One Legacy! ✨</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Daftar Anggota -->
+        <section class="members-section">
+            <div class="container">
+                <h2>SQUAD LULUS ANGKATAN VII</h2>
+                <div class="members-grid" id="membersGrid">
+                    <!-- Data anggota akan diisi oleh JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Magang -->
+        <section class="magang-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>GALLERY PENGALAMAN MAGANG KITA</h2>
+                    <button class="btn-upload" id="uploadMagangBtn">
+                        <span>+ Upload Pengalaman</span>
+                    </button>
+                </div>
+                
+                <div class="gallery-container" id="magangGallery">
+                    <div class="empty-state">
+                        <div class="empty-icon">📁</div>
+                        <h3>Belum Ada Cerita Magang Nih...</h3>
+                        <p>Jadi yang pertama share pengalaman magangmu!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wall Motivation -->
+        <section class="wall-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>WALL OF MOTIVATION & CURHAT</h2>
+                    <button class="btn-upload" id="uploadWallBtn">
+                        <span>+ Post Something</span>
+                    </button>
+                </div>
+                
+                <div class="wall-container" id="wallContainer">
+                    <div class="empty-state">
+                        <div class="empty-icon">💬</div>
+                        <h3>Wall Masih Sepi...</h3>
+                        <p>Bagikan kata-kata motivasi atau curhat kolektifmu!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal Upload -->
+        <div class="modal" id="uploadModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="modalTitle">Upload Konten</h3>
+                    <button class="close-btn" id="closeModal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="uploadForm">
+                        <div class="form-group">
+                            <label for="uploadName">Nama (opsional):</label>
+                            <input type="text" id="uploadName" placeholder="Bisa pakai nama samaran">
+                        </div>
+                        <div class="form-group">
+                            <label for="uploadText">Keterangan:</label>
+                            <textarea id="uploadText" placeholder="Ceritakan pengalaman magangmu atau tulis kata-kata motivasi..." rows="4"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="uploadImage">Upload Gambar (opsional):</label>
+                            <input type="file" id="uploadImage" accept="image/*">
+                            <div class="image-preview" id="imagePreview"></div>
+                        </div>
+                        <button type="submit" class="btn-primary">Posting Sekarang</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
